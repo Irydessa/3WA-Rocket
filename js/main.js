@@ -24,32 +24,40 @@ let intervalID ;
 /***********************************************************************************/
 
 /*
- * clic bouton : deconte comence setinterval ok
+ * clic bouton : decompte comence setinterval ok
  *               gif image change (2) ok
  *               image bouton change ok
-                 deconte fini gif image change (3)
-*/
+ *               decompte fini gif image change (3) ok
+ *               
+ *fin du decompte : fusée décole
+ *                  bouton change en gris.
+ */
 
-
-buttonFiring.addEventListener('click', function(){
-        buttonFiring.src = "images/cancel-button.png";
-        rocket.src = "images/rocket2.gif";
-        
-        function startCountdown(){
+    
+    buttonFiring.addEventListener('click', function(){
+            buttonFiring.src = "images/cancel-button.png";
+            rocket.src = "images/rocket2.gif";
             
-            if (countDown <= 0){
-                clearInterval(intervalID);
-            }
-              billboard.innerHTML = countDown;
-              countDown--;
-        } 
-        
-        intervalID = setInterval(startCountdown, 1000);
-        
-//   console.log('hello');
-});
+            function startCountdown(){
+                
+                if (countDown <= 0){
+                    clearInterval(intervalID);
+                    rocket.src = "images/rocket3.gif";
+                }
+                  billboard.innerHTML = countDown;
+                  countDown--;
+                  
+                  if (countDown == 0){
+                      rocket.classList.add("tookOff")
+        }
+                  
+            } 
+            
+            intervalID = setInterval(startCountdown, 1000);
 
-
+    });
+    
+    
 
 
 
